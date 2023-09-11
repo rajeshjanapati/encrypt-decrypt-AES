@@ -15,7 +15,7 @@ $keyLength = 16
 # Write-Host "Generated Key (Hex): $keyHex"
 
 # Define your plaintext data and key
-$plaintext = "Hello, World!"
+$plaintext = "Hello, Pavan...!"
 $key = $keyHex  # 16, 24, or 32 bytes key for AES-128, AES-192, or AES-256
 
 # Convert the key to bytes (UTF-8 encoding)
