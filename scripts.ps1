@@ -43,12 +43,6 @@ $encryptedBase64 = [System.Convert]::ToBase64String($encryptedBytes)
 Write-Host "Encrypted Data (Base64): $encryptedBase64"
 Write-Host "Initialization Vector (Base64): $IVBase64"
 
-
-# Decrypt the data
-$AES = New-Object System.Security.Cryptography.AesCryptoServiceProvider
-$AES.Key = $keyBytes
-$AES.Mode = [System.Security.Cryptography.CipherMode]::CBC
-
 # Convert the IV and encrypted bytes from Base64
 $IV = [System.Convert]::FromBase64String($IVBase64)
 $encryptedBytes = [System.Convert]::FromBase64String($encryptedBase64)
