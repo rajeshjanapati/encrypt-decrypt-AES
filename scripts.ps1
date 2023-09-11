@@ -26,7 +26,7 @@ Write-Host "32-Character Hexadecimal Key: $hexadecimalKey"
 
 # Define your plaintext data and key
 $plaintext = "Hello, Pavan...!"
-$key = $keyHex  # 16, 24, or 32 bytes key for AES-128, AES-192, or AES-256
+$key = $hexadecimalKey  # 16, 24, or 32 bytes key for AES-128, AES-192, or AES-256
 
 # Convert the key to bytes (UTF-8 encoding)
 $keyBytes = [System.Text.Encoding]::UTF8.GetBytes($key)
