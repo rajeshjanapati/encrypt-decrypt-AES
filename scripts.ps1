@@ -4,7 +4,7 @@ $keyLength = 32
 # Generate a random encryption key
 $keyBytes = [byte[]]::new($keyLength)
 $randomNumberGenerator = [System.Security.Cryptography.RandomNumberGenerator]::Create()
-$key = $randomNumberGenerator.GetBytes($keyBytes)
+$randomNumberGenerator.GetBytes($keyBytes)
 
 # Convert the key to a hexadecimal string
 $keyHex = [System.BitConverter]::ToString($keyBytes) -replace '-'
@@ -14,10 +14,9 @@ Write-Host "Generated Key (Hex): $keyHex"
 
 # Define your plaintext data and key
 $plaintext = "Hello, World!"
-# $key = $keyHex  # 16, 24, or 32 bytes key for AES-128, AES-192, or AES-256
 
 # Convert the key to bytes (UTF-8 encoding)
-$keyBytes = [System.Text.Encoding]::UTF8.GetBytes($key)
+$keyBytes = [System.Text.Encoding]::UTF8.GetBytes($keyHex)
 
 # Create a new AES object with the specified key and AES mode
 $AES = New-Object System.Security.Cryptography.AesCryptoServiceProvider
@@ -42,6 +41,7 @@ $encryptedBase64 = [System.Convert]::ToBase64String($encryptedBytes)
 # Display the encrypted data and IV
 Write-Host "Encrypted Data (Base64): $encryptedBase64"
 Write-Host "Initialization Vector (Base64): $IVBase64"
+
 
 # # Decrypt the data
 # $AES = New-Object System.Security.Cryptography.AesCryptoServiceProvider
