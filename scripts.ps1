@@ -50,7 +50,7 @@
 # Write-Host "Decrypted Data: $decryptedText"
 
 # Input decimal number
-$decimalNumber = 255
+$decimalNumber = pavan9611097057
 
 # Convert decimal to hexadecimal with 16 bytes (32 hexadecimal characters)
 $hexadecimal = $decimalNumber.ToString("X16")
