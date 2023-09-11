@@ -3,7 +3,7 @@
 # Input string
 $inputString = "pavan1234567"
 
-$keyLength = 16
+$keyLength = 32  # 32 bytes for AES-256
 
 # Convert the string to bytes using UTF-8 encoding
 $stringBytes = [System.Text.Encoding]::UTF8.GetBytes($inputString)
@@ -17,23 +17,23 @@ $hashBytes = $sha256.ComputeHash($stringBytes)
 # Close the SHA-256 hash object
 $sha256.Dispose()
 
-# Convert the hash bytes to a hexadecimal string (32 characters)
+# Convert the hash bytes to a hexadecimal string (64 characters)
 $hexadecimalKey = [System.BitConverter]::ToString($hashBytes) -replace '-'
 
-# Display the 32-character hexadecimal key
-Write-Host "32-Character Hexadecimal Key: $hexadecimalKey"
-
+# Display the 64-character hexadecimal key
+Write-Host "64-Character Hexadecimal Key: $hexadecimalKey"
 
 # Define your plaintext data and key
 $plaintext = "Hello, Pavan...!"
-$key = $hexadecimalKey  # 16, 24, or 32 bytes key for AES-128, AES-192, or AES-256
+$key = $hexadecimalKey  # 32 bytes key for AES-256
 
 # Convert the key to bytes (UTF-8 encoding)
 $keyBytes = [System.Text.Encoding]::UTF8.GetBytes($key)
 
 # Create a new AES object with the specified key and AES mode
 $AES = New-Object System.Security.Cryptography.AesCryptoServiceProvider
-$AES.Key = $keyBytes  # Make sure the key is correctly set here
+$AES.KeySize = 256  # Set the key size to 256 bits for AES-256
+$AES.Key = $keyBytes
 $AES.Mode = [System.Security.Cryptography.CipherMode]::CBC
 
 # Generate a random initialization vector (IV)
