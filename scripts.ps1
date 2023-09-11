@@ -1,5 +1,5 @@
 # Define the key length (32 bytes for AES-256)
-$keyLength = 32
+$keyLength = 16
 
 # Generate a random encryption key
 $keyBytes = [byte[]]::new($keyLength)
