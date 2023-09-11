@@ -3,7 +3,7 @@
 # Input string
 $inputString = "pavan1234567"
 
-$keyLength = 32  # 32 bytes for AES-256
+$keyLength = 64  # 32 bytes for AES-256
 
 # Convert the string to bytes using UTF-8 encoding
 $stringBytes = [System.Text.Encoding]::UTF8.GetBytes($inputString)
