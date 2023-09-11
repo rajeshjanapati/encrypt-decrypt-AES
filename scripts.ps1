@@ -1,28 +1,31 @@
 # $keyHex = $env:key
 
-# Input string
-$inputString = "pavan9611097057"
+# # Input string
+# $inputString = "pavan9611097057"
 
-# Convert the string to bytes using UTF-8 encoding
-$stringBytes = [System.Text.Encoding]::UTF8.GetBytes($inputString)
+# # Convert the string to bytes using UTF-8 encoding
+# $stringBytes = [System.Text.Encoding]::UTF8.GetBytes($inputString)
 
-# Create a SHA-256 hash object
-$sha256 = [System.Security.Cryptography.SHA256]::Create()
+# # Create a SHA-256 hash object
+# $sha256 = [System.Security.Cryptography.SHA256]::Create()
 
-# Compute the hash of the input string
-$hashBytes = $sha256.ComputeHash($stringBytes)
+# # Compute the hash of the input string
+# $hashBytes = $sha256.ComputeHash($stringBytes)
 
-# Close the SHA-256 hash object
-$sha256.Dispose()
+# # Close the SHA-256 hash object
+# $sha256.Dispose()
 
-# Convert the hash bytes to a hexadecimal string
-$hexadecimalKey = [System.BitConverter]::ToString($hashBytes) -replace '-'
+# # Convert the hash bytes to a hexadecimal string
+# $hexadecimalKey = [System.BitConverter]::ToString($hashBytes) -replace '-'
 
-# Display the 16-byte hexadecimal key
-Write-Host "Hexadecimal Key (16 bytes): $hexadecimalKey"
+# # Display the 16-byte hexadecimal key
+# Write-Host "Hexadecimal Key (16 bytes): $hexadecimalKey"
 
 # Define the key length (24 bytes for AES-192)
 $keyLength = 16
+
+# Hexadecimal Key (16 bytes) - Replace with your 32-character hexadecimal key
+$keyHex = "CFF36195078CD7B62F3312C072C2E64FB196CA939D01DC9C480CC5E33B719E43"
 
 # Define your plaintext data and key
 $plaintext = "Hello, Pavan...!"
