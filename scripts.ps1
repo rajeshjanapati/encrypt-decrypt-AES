@@ -44,21 +44,21 @@ Write-Host "Encrypted Data (Base64): $encryptedBase64"
 Write-Host "Initialization Vector (Base64): $IVBase64"
 
 
-# # Decrypt the data
-# $AES = New-Object System.Security.Cryptography.AesCryptoServiceProvider
-# $AES.Key = $keyBytes
-# $AES.Mode = [System.Security.Cryptography.CipherMode]::CBC
+# Decrypt the data
+$AES = New-Object System.Security.Cryptography.AesCryptoServiceProvider
+$AES.Key = $keyBytes
+$AES.Mode = [System.Security.Cryptography.CipherMode]::CBC
 
-# # Convert the IV and encrypted bytes from Base64
-# $IV = [System.Convert]::FromBase64String($IVBase64)
-# $encryptedBytes = [System.Convert]::FromBase64String($encryptedBase64)
+# Convert the IV and encrypted bytes from Base64
+$IV = [System.Convert]::FromBase64String($IVBase64)
+$encryptedBytes = [System.Convert]::FromBase64String($encryptedBase64)
 
-# # Create a decryptor
-# $decryptor = $AES.CreateDecryptor()
-# $decryptedBytes = $decryptor.TransformFinalBlock($encryptedBytes, 0, $encryptedBytes.Length)
+# Create a decryptor
+$decryptor = $AES.CreateDecryptor()
+$decryptedBytes = $decryptor.TransformFinalBlock($encryptedBytes, 0, $encryptedBytes.Length)
 
-# # Convert the decrypted bytes back to plaintext
-# $decryptedText = [System.Text.Encoding]::UTF8.GetString($decryptedBytes)
+# Convert the decrypted bytes back to plaintext
+$decryptedText = [System.Text.Encoding]::UTF8.GetString($decryptedBytes)
 
-# # Display the decrypted data
-# Write-Host "Decrypted Data: $decryptedText"
+# Display the decrypted data
+Write-Host "Decrypted Data: $decryptedText"
