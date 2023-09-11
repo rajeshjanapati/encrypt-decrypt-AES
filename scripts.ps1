@@ -22,7 +22,7 @@
 # Write-Host "Hexadecimal Key (16 bytes): $hexadecimalKey"
 
 # Define the key length (24 bytes for AES-192)
-$keyLength = 16
+$keyLength = 32
 
 # Hexadecimal Key (16 bytes) - Replace with your 32-character hexadecimal key
 $keyHex = "CFF36195078CD7B62F3312C072C2E64FB196CA939D01DC9C480CC5E33B719E43"
