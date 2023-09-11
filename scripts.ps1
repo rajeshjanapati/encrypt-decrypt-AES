@@ -22,7 +22,7 @@ $hexadecimalKey = [System.BitConverter]::ToString($hashBytes) -replace '-'
 Write-Host "Hexadecimal Key (16 bytes): $hexadecimalKey"
 
 # Define the key length (32 bytes for AES-256)
-$keyLength = 32
+$keyLength = 24
 
 
 # Define your plaintext data and key
