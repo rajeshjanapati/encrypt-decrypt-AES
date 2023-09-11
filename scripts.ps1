@@ -1,4 +1,4 @@
-$keyHex = $env:key
+# $keyHex = $env:key
 
 # Input string
 $inputString = "pavan9611097057"
@@ -21,9 +21,8 @@ $hexadecimalKey = [System.BitConverter]::ToString($hashBytes) -replace '-'
 # Display the 16-byte hexadecimal key
 Write-Host "Hexadecimal Key (16 bytes): $hexadecimalKey"
 
-# Define the key length (32 bytes for AES-256)
+# Define the key length (24 bytes for AES-192)
 $keyLength = 24
-
 
 # Define your plaintext data and key
 $plaintext = "Hello, Pavan...!"
