@@ -49,12 +49,24 @@
 # # Display the decrypted data
 # Write-Host "Decrypted Data: $decryptedText"
 
-# Input decimal number
-$decimalNumber = "pavan9611097057"
+# Input string
+$inputString = "pavan9611097057"
 
-# Convert decimal to hexadecimal with 16 bytes (32 hexadecimal characters)
-$hexadecimal = $decimalNumber.ToString("X16")
+# Convert the string to bytes using UTF-8 encoding
+$stringBytes = [System.Text.Encoding]::UTF8.GetBytes($inputString)
 
-# Display the hexadecimal result
-Write-Host "Decimal: $decimalNumber"
-Write-Host "Hexadecimal (16 bytes): 0x$hexadecimal"
+# Create a SHA-256 hash object
+$sha256 = [System.Security.Cryptography.SHA256]::Create()
+
+# Compute the hash of the input string
+$hashBytes = $sha256.ComputeHash($stringBytes)
+
+# Close the SHA-256 hash object
+$sha256.Dispose()
+
+# Convert the hash bytes to a hexadecimal string
+$hexadecimalKey = [System.BitConverter]::ToString($hashBytes) -replace '-'
+
+# Display the 16-byte hexadecimal key
+Write-Host "Hexadecimal Key (16 bytes): $hexadecimalKey"
+
