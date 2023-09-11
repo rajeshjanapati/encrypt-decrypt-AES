@@ -1,4 +1,4 @@
-# Define the key length (16 bytes for AES-128, 24 bytes for AES-192, 32 bytes for AES-256)
+# Define the key length (32 bytes for AES-256)
 $keyLength = 32
 
 # Generate a random encryption key
