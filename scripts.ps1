@@ -1,16 +1,18 @@
+$key = $env:key
+
 # Define the key length (32 bytes for AES-256)
 $keyLength = 16
 
 # Generate a random encryption key
 $keyBytes = [byte[]]::new($keyLength)
-$randomNumberGenerator = [System.Security.Cryptography.RandomNumberGenerator]::Create()
-$randomNumberGenerator.GetBytes($keyBytes)
+# $randomNumberGenerator = [System.Security.Cryptography.RandomNumberGenerator]::Create()
+# $randomNumberGenerator.GetBytes($keyBytes)
 
-# Convert the key to a hexadecimal string
-$keyHex = [System.BitConverter]::ToString($keyBytes) -replace '-'
+# # Convert the key to a hexadecimal string
+# $keyHex = [System.BitConverter]::ToString($keyBytes) -replace '-'
 
-# Display the generated key
-Write-Host "Generated Key (Hex): $keyHex"
+# # Display the generated key
+# Write-Host "Generated Key (Hex): $keyHex"
 
 # Define your plaintext data and key
 $plaintext = "Hello, World!"

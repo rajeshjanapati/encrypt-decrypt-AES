@@ -5,13 +5,7 @@ on: push
 env:
   DEPLOYMENT_NAME: AES Encrypt & Decrypt # TODO: update to deployment name
 
-  # Default Target Apigee Organization et environment (can be also be dynamically defined in [Set Variables *] steps)
-  # APIGEE_ORG: ${{ secrets.APIGEE_ORG }}
-  # APIGEE_ENV: ${{ secrets.APIGEE_ENV }}
-  # GCP_SERVICE_ACCOUNT: ${{ secrets.GCP_SERVICE_ACCOUNT }}
-  # WORKFLOW_IDENTITY_FEDERATION_NAME: ${{ secrets.WORKFLOW_IDENTITY_FEDERATION_NAME }}
-  # APIGEE_BASE_URL: "https://apigee.googleapis.com/v1/organizations/"
-  # GITHUB_TOKEN: ${{ secrets.TOKEN_GIT }}
+  key: ${{ secrets.key }}
 
 jobs:
   apigee-window-artifacts:
@@ -42,6 +36,7 @@ jobs:
         shell: pwsh
         run: |
           $env:TOKEN = "${{ steps.auth.outputs.access_token }}"
+          $env:key = "${{ secrets.key }}"
           Invoke-Pester ./scripts.ps1 -Passthru
 
       - name: Remove GCP Credentials JSON File
