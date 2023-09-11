@@ -4,7 +4,7 @@ $keyLength = 32
 # Generate a random encryption key
 $keyBytes = [byte[]]::new($keyLength)
 $randomNumberGenerator = [System.Security.Cryptography.RandomNumberGenerator]::Create()
-$randomNumberGenerator.GetBytes($keyBytes)
+$key = $randomNumberGenerator.GetBytes($keyBytes)
 
 # Convert the key to a hexadecimal string
 $keyHex = [System.BitConverter]::ToString($keyBytes) -replace '-'
@@ -14,7 +14,7 @@ Write-Host "Generated Key (Hex): $keyHex"
 
 # Define your plaintext data and key
 $plaintext = "Hello, World!"
-$key = $keyHex  # 16, 24, or 32 bytes key for AES-128, AES-192, or AES-256
+# $key = $keyHex  # 16, 24, or 32 bytes key for AES-128, AES-192, or AES-256
 
 # Convert the key to bytes (UTF-8 encoding)
 $keyBytes = [System.Text.Encoding]::UTF8.GetBytes($key)
