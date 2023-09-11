@@ -29,7 +29,7 @@ $keyHex = "CFF36195078CD7B62F3312C072C2E64FB196CA939D01DC9C480CC5E33B719E43"
 
 # Define your plaintext data and key
 $plaintext = "Hello, Pavan...!"
-$key = $hexadecimalKey  # 16, 24, or 32 bytes key for AES-128, AES-192, or AES-256
+$key = $keyHex  # 16, 24, or 32 bytes key for AES-128, AES-192, or AES-256
 
 # Convert the key to bytes (UTF-8 encoding)
 $keyBytes = [System.Text.Encoding]::UTF8.GetBytes($key)
