@@ -1,7 +1,7 @@
-# $keyHex = $env:key
+$keyHex = $env:key
 
 # Input string
-$inputString = "pavan1234567"
+$inputString = $keyHex
 
 $keyLength = 32  # 32 bytes for AES-256
 
