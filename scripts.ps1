@@ -3,32 +3,17 @@
 # Input string
 $inputString = "pavan1234567"
 
-$keyLength = 64  # 32 bytes for AES-256
+$keyLength = 32  # 32 bytes for AES-256
 
 # Convert the string to bytes using UTF-8 encoding
 $stringBytes = [System.Text.Encoding]::UTF8.GetBytes($inputString)
 
-# Create a SHA-256 hash object
-$sha256 = [System.Security.Cryptography.SHA256]::Create()
-
-# Compute the hash of the input string
-$hashBytes = $sha256.ComputeHash($stringBytes)
-
-# Close the SHA-256 hash object
-$sha256.Dispose()
-
-# Convert the hash bytes to a hexadecimal string (64 characters)
-$hexadecimalKey = [System.BitConverter]::ToString($hashBytes) -replace '-'
-
-# Display the 64-character hexadecimal key
-Write-Host "64-Character Hexadecimal Key: $hexadecimalKey"
+# Create a 32-byte key directly from the input string (no need for SHA-256)
+$keyBytes = $stringBytes + @(0) * (32 - $stringBytes.Length)
 
 # Define your plaintext data and key
 $plaintext = "Hello, Pavan...!"
-$key = $hexadecimalKey  # 32 bytes key for AES-256
-
-# Convert the key to bytes (UTF-8 encoding)
-$keyBytes = [System.Text.Encoding]::UTF8.GetBytes($key)
+$key = $keyBytes  # 32 bytes key for AES-256
 
 # Create a new AES object with the specified key and AES mode
 $AES = New-Object System.Security.Cryptography.AesCryptoServiceProvider
