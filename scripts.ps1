@@ -14,13 +14,14 @@ Write-Host "Generated Key (Hex): $keyHex"
 
 # Define your plaintext data and key
 $plaintext = "Hello, World!"
+$key = $keyHex  # 16, 24, or 32 bytes key for AES-128, AES-192, or AES-256
 
 # Convert the key to bytes (UTF-8 encoding)
-$keyBytes = [System.Text.Encoding]::UTF8.GetBytes($keyHex)
+$keyBytes = [System.Text.Encoding]::UTF8.GetBytes($key)
 
 # Create a new AES object with the specified key and AES mode
 $AES = New-Object System.Security.Cryptography.AesCryptoServiceProvider
-$AES.Key = $keyBytes
+$AES.Key = $keyBytes  # Make sure the key is correctly set here
 $AES.Mode = [System.Security.Cryptography.CipherMode]::CBC
 
 # Generate a random initialization vector (IV)
